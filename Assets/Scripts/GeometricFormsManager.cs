@@ -26,8 +26,7 @@ public class GeometricFormsManager : MonoBehaviour {
 	public void SpawnCircle()
 	{
 		print ("Tamanho da tela" + Screen.height);
-		print ("Tamanho do sprite width: " + circleRenderer.bounds.extents.x + "height" + circleRenderer.bounds.extents.x);
-
+	
 		circle = (GameObject) Instantiate(circlePrefab, Vector3.zero, Quaternion.identity);
 
 		circleRenderer = circle.GetComponent<Renderer>();
@@ -35,11 +34,13 @@ public class GeometricFormsManager : MonoBehaviour {
 
 		circleScale = Random.Range(0.2f,1.0f);
 		circle.transform.localScale = new Vector3(circleScale,circleScale,1);
-		circleX = Random.Range(circleRenderer.bounds.extents.x, (Screen.width*2/100.0f) - circleRenderer.bounds.extents.x);
-		circleY = Random.Range(circleRenderer.bounds.extents.y, (Screen.height*2/100.0f) - circleRenderer.bounds.extents.y);
-		circlePosition = new Vector3(circleX, circleY,0);
+		print ("Tamanho do sprite width: " + circleRenderer.bounds.extents.x + "height" + circleRenderer.bounds.extents.x);
 
-		circle.transform.position = circlePosition;
+		circleX = Random.Range(0,(Screen.width));
+		circleY = Random.Range(0, (Screen.height));
+		circlePosition = Camera.main.ScreenToWorldPoint(new Vector3(circleX, circleY,0.0f));
+
+		circle.transform.position = new Vector3(circlePosition.x,circlePosition.y,0);
 	}
 
 

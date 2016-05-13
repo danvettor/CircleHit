@@ -6,7 +6,7 @@ public class SceneManager : MonoBehaviour {
 	void Start()
 	{
 		if(Application.loadedLevelName == "LogoScene")
-			Invoke ("ChangeSceneDelayed",6.0f);
+			Invoke ("ChangeSceneDelayed",5.0f);
 	}
 	public void ChangeScene(string sceneName)
 	{

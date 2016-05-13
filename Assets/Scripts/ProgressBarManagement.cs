@@ -50,8 +50,8 @@ public class ProgressBarManagement : MonoBehaviour {
 	{
 		while(true)
 		{
-			decreaseTimeDelay -= 0.005f;
-			yield return new WaitForSeconds(10.0f);
+			decreaseRate += 0.0005f;
+			yield return new WaitForSeconds(2.0f);
 		}
 	}
 

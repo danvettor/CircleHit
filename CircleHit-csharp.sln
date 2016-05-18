@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{5487DEA3-F83E-747D-979E-09B2F01C1162}") = "CircleHit", "Assembly-CSharp.csproj", "{B41541FA-FBA2-B453-DF89-F34852B65800}"
+Project("{5487DEA3-F83E-747D-979E-09B2F01C1162}") = "CircleHit", "Assembly-CSharp-vs.csproj", "{B41541FA-FBA2-B453-DF89-F34852B65800}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,7 +17,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																								GlobalSection(MonoDevelopProperties) = preSolution
+																																									GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

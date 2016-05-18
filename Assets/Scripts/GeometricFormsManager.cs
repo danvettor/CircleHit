@@ -20,7 +20,7 @@ public class GeometricFormsManager : MonoBehaviour {
 	public void DestroyCircle(GameObject circle)
 	{
 		Destroy(circle);
-		bar.fillAmount += 0.05f;
+		bar.fillAmount += 0.1f;
 		SpawnCircle();
 	}
 	public void SpawnCircle()

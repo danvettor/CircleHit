@@ -8,6 +8,7 @@ public class ProgressBarManagement : MonoBehaviour {
 	public float decreaseRate, decreaseTimeDelay;
 
 	public TimerManager time;
+	public GameEvolution game;
 
 
 
@@ -33,7 +34,7 @@ public class ProgressBarManagement : MonoBehaviour {
 		if(bar.fillAmount <= 0)
 		{
 			print ("Tmepo a ser salvo: "+ time.seconds);
-			GameManager.SaveTime(time.minutes, time.seconds);
+			DataManager.SaveTime(time.minutes, time.seconds);
 			Application.LoadLevel("LoseScene");
 		}
 	}
@@ -51,7 +52,7 @@ public class ProgressBarManagement : MonoBehaviour {
 		while(true)
 		{
 			decreaseRate += 0.0005f;
-			yield return new WaitForSeconds(2.0f);
+			yield return new WaitForSeconds(10.0f/game.gameLevel);
 		}
 	}
 

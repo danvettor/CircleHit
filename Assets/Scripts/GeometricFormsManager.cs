@@ -16,29 +16,44 @@ public class GeometricFormsManager : MonoBehaviour {
 
 	private float circleX, circleY, circleScale;
 
+	private float minX,maxX,minY,maxY;
+	private Vector3 screenSize;
+
 	
 	public void DestroyCircle(GameObject circle)
 	{
 		Destroy(circle);
 		bar.fillAmount += 0.1f;
 		SpawnCircle();
+		screenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,0.0f));
+		print("Tamaanho da tela redimensionado" + screenSize);
+
 	}
 	public void SpawnCircle()
 	{
-		print ("Tamanho da tela" + Screen.height);
+		print ("Tamanho da tela :(h: " + Screen.height +", w: "+ Screen.width+")");
 	
 		circle = (GameObject) Instantiate(circlePrefab, Vector3.zero, Quaternion.identity);
 
-		circleRenderer = circle.GetComponent<Renderer>();
-
-
+	
 		circleScale = Random.Range(0.2f,1.0f);
 		circle.transform.localScale = new Vector3(circleScale,circleScale,1);
-		print ("Tamanho do sprite width: " + circleRenderer.bounds.extents.x + "height" + circleRenderer.bounds.extents.x);
+		circleRenderer = circle.GetComponent<Renderer>();
 
-		circleX = Random.Range(0,(Screen.width));
-		circleY = Random.Range(0, (Screen.height));
-		circlePosition = Camera.main.ScreenToWorldPoint(new Vector3(circleX, circleY,0.0f));
+		print ("Tamanho do sprite width: " + circleRenderer.bounds.extents.magnitude + "height" + circleRenderer.bounds.extents.x);
+
+		minX = -screenSize.x + circleRenderer.bounds.extents.x/2;
+		maxX =  screenSize.x - circleRenderer.bounds.extents.x/2;
+		minY = -screenSize.y + circleRenderer.bounds.extents.x/2;
+		maxY =  screenSize.y - circleRenderer.bounds.extents.x/2;
+
+		circleX = Random.Range(minX,maxX);
+		circleY = Random.Range(minY,maxY);
+
+		//circlePosition = Camera.main.ScreenToWorldPoint(new Vector3(circleX, circleY,0.0f));
+		circlePosition = new Vector3(circleX, circleY,0.0f);
+
+		print("posicao escolhida: " + circlePosition);
 
 		circle.transform.position = new Vector3(circlePosition.x,circlePosition.y,0);
 	}

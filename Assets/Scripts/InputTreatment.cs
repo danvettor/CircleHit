@@ -12,7 +12,7 @@ public class InputTreatment : MonoBehaviour {
 	private GeometricFormsManager geometricHandler;
 
 	[SerializeField]
-	private Image bar;
+	private ProgressBarManagement barManagement;
 
 
 	void Update ()
@@ -34,7 +34,7 @@ public class InputTreatment : MonoBehaviour {
 				}
 			}
 			else {
-				bar.fillAmount -= 0.05f;
+				barManagement.DecrementBar(0.05f);
 			}
 		}
 

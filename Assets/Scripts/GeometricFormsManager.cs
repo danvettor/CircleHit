@@ -5,14 +5,15 @@ using UnityEngine.UI;
 public class GeometricFormsManager : MonoBehaviour {
 	[SerializeField]
 	private GameObject circlePrefab;
-	private GameObject circle;
+	private GameObject circleObject;
 
 	private Vector2 circlePosition;
+
 	[SerializeField]
 	private Renderer circleRenderer;
 
 	[SerializeField]
-	private Image bar;
+	private ProgressBarManagement barManagement;
 
 	private float circleX, circleY, circleScale;
 
@@ -23,22 +24,21 @@ public class GeometricFormsManager : MonoBehaviour {
 	public void DestroyCircle(GameObject circle)
 	{
 		Destroy(circle);
-		bar.fillAmount += 0.1f;
+		barManagement.IncreaseBar(0.1f);
 		SpawnCircle();
 		screenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,0.0f));
-		print("Tamaanho da tela redimensionado" + screenSize);
 
 	}
 	public void SpawnCircle()
 	{
 		print ("Tamanho da tela :(h: " + Screen.height +", w: "+ Screen.width+")");
 	
-		circle = (GameObject) Instantiate(circlePrefab, Vector3.zero, Quaternion.identity);
+		circleObject = (GameObject) Instantiate(circlePrefab, Vector3.zero, Quaternion.identity);
 
 	
 		circleScale = Random.Range(0.2f,1.0f);
-		circle.transform.localScale = new Vector3(circleScale,circleScale,1);
-		circleRenderer = circle.GetComponent<Renderer>();
+		circleObject.transform.localScale = new Vector3(circleScale,circleScale,1);
+		circleRenderer = circleObject.GetComponent<Renderer>();
 
 		print ("Tamanho do sprite width: " + circleRenderer.bounds.extents.magnitude + "height" + circleRenderer.bounds.extents.x);
 
@@ -55,8 +55,10 @@ public class GeometricFormsManager : MonoBehaviour {
 
 		print("posicao escolhida: " + circlePosition);
 
-		circle.transform.position = new Vector3(circlePosition.x,circlePosition.y,0);
+		circleObject.transform.position = new Vector3(circlePosition.x,circlePosition.y,0);
 	}
+
+	
 
 
 

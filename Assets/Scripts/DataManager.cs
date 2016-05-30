@@ -1,10 +1,7 @@
-﻿using UnityEngine;
+﻿	using UnityEngine;
 using System.Collections;
 
 public static class DataManager {
-
-
-
 
 	public static void SaveTime(float minutes, float seconds)
 	{

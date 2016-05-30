@@ -5,24 +5,39 @@ using UnityEngine.UI;
 public class ProgressBarManagement : MonoBehaviour {
 	[SerializeField]
 	private Image bar;
-	public float decreaseRate, decreaseTimeDelay;
+
+	float decreaseTimeDelay;
 
 	public TimerManager time;
 	public GameEvolution game;
 
-
-
 	// Use this for initialization
 	void Start () 
 	{
-		StartCoroutine(DecrementBar());
-		StartCoroutine(SpeedUp());
+		decreaseTimeDelay = 0.005f;
+		StartCoroutine(ConstantDecrementBar());
+		StartCoroutine(GameEvolution.SpeedUp());
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		
+
+		ChangeBarColor();
+		LoseGame();
+	}
+
+	void LoseGame()
+	{
+		if(bar.fillAmount <= 0)
+		{
+			DataManager.SaveTime(time.minutes, time.seconds);
+			Application.LoadLevel("LoseScene");
+		}
+	}
+
+	void ChangeBarColor()
+	{
 		if(bar.fillAmount > 0.5f)
 			bar.color = Color.green;
 		else if(bar.fillAmount <= 0.5f &&  bar.fillAmount > 0.2f)
@@ -30,31 +45,22 @@ public class ProgressBarManagement : MonoBehaviour {
 		else if (bar.fillAmount <= 0.2f)
 			bar.color = Color.red;
 
-
-		if(bar.fillAmount <= 0)
-		{
-			print ("Tmepo a ser salvo: "+ time.seconds);
-			DataManager.SaveTime(time.minutes, time.seconds);
-			Application.LoadLevel("LoseScene");
-		}
 	}
-	IEnumerator DecrementBar()
+	IEnumerator ConstantDecrementBar()
 	{
 		while(true)
 		{
-			bar.fillAmount -= decreaseRate;
+			bar.fillAmount -= GameEvolution.decreaseRate;
 			yield return new WaitForSeconds(decreaseTimeDelay);
 		}
 	}
-
-	IEnumerator SpeedUp()
+	public void DecrementBar(float value)
 	{
-		while(true)
-		{
-			decreaseRate += 0.0005f;
-			yield return new WaitForSeconds(10.0f/game.gameLevel);
-		}
+		bar.fillAmount -= value;
 	}
-
+	public void IncreaseBar(float value)
+	{
+		bar.fillAmount += value;
+	}
 
 }

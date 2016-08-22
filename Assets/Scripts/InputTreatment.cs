@@ -32,11 +32,15 @@ public class InputTreatment : MonoBehaviour {
 				{
 					geometricHandler.DestroyCircle(hit.collider.gameObject);
 				}
+<<<<<<< HEAD
                 else if (hit.collider.CompareTag("FakeCircle"))
                 {
                     geometricHandler.FakeDestroyCircle(hit.collider.gameObject);
                 }
             }
+=======
+			}
+>>>>>>> bdc512437efe42f5abd69a58977fc53a99c29836
 			else {
 				barManagement.DecrementBar(0.05f);
 			}
@@ -57,11 +61,15 @@ public class InputTreatment : MonoBehaviour {
 				{
 					geometricHandler.DestroyCircle(hit.collider.gameObject);
 				}
+<<<<<<< HEAD
                 else if (hit.collider.CompareTag("FakeCircle"))
                 {
                     geometricHandler.FakeDestroyCircle(hit.collider.gameObject);
                 }
             }
+=======
+			}
+>>>>>>> bdc512437efe42f5abd69a58977fc53a99c29836
 			else 
 			{
 				print("nao achei nada");
@@ -69,4 +77,10 @@ public class InputTreatment : MonoBehaviour {
 		}
 		
 	}
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> bdc512437efe42f5abd69a58977fc53a99c29836
 }

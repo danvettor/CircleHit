@@ -62,9 +62,12 @@ public class ProgressBarManagement : MonoBehaviour {
 	{
 		bar.fillAmount += value;
 	}
+<<<<<<< HEAD
     public void DecreaseBar(float value)
     {
         bar.fillAmount -= value;
     }
+=======
+>>>>>>> bdc512437efe42f5abd69a58977fc53a99c29836
 
 }

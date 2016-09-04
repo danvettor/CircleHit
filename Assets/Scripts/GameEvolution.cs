@@ -9,7 +9,7 @@ public class GameEvolution : MonoBehaviour {
 	void Awake () 
 	{
 		gameLevel = 1;
-		decreaseRate = 0.001f;
+		decreaseRate = 0.000001f;
 	}
 
 	IEnumerator IncreaseLevel()

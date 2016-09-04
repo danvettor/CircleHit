@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ProgressBarManagement : MonoBehaviour {
 	[SerializeField]
@@ -14,7 +15,7 @@ public class ProgressBarManagement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		decreaseTimeDelay = 0.005f;
+		decreaseTimeDelay = 1.5f;
 		StartCoroutine(ConstantDecrementBar());
 		StartCoroutine(GameEvolution.SpeedUp());
 	}
@@ -32,7 +33,7 @@ public class ProgressBarManagement : MonoBehaviour {
 		if(bar.fillAmount <= 0)
 		{
 			DataManager.SaveTime(time.minutes, time.seconds);
-			Application.LoadLevel("LoseScene");
+			SceneManager.LoadScene("LoseScene");
 		}
 	}
 
@@ -48,26 +49,22 @@ public class ProgressBarManagement : MonoBehaviour {
 	}
 	IEnumerator ConstantDecrementBar()
 	{
+        yield return new WaitForSeconds(5.0f);
 		while(true)
 		{
 			bar.fillAmount -= GameEvolution.decreaseRate;
 			yield return new WaitForSeconds(decreaseTimeDelay);
 		}
 	}
-	public void DecrementBar(float value)
-	{
-		bar.fillAmount -= value;
-	}
 	public void IncreaseBar(float value)
 	{
 		bar.fillAmount += value;
 	}
-<<<<<<< HEAD
+
     public void DecreaseBar(float value)
     {
         bar.fillAmount -= value;
     }
-=======
->>>>>>> bdc512437efe42f5abd69a58977fc53a99c29836
+
 
 }

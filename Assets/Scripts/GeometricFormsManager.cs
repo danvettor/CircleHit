@@ -2,17 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 
-<<<<<<< HEAD
-public class GeometricFormsManager : MonoBehaviour
-{
-=======
+
 public class GeometricFormsManager : MonoBehaviour {
->>>>>>> bdc512437efe42f5abd69a58977fc53a99c29836
 	[SerializeField]
 	private GameObject circlePrefab;
 	private GameObject circleObject;
 
-<<<<<<< HEAD
     [SerializeField]
     private GameObject fakeCirclePrefab;
     private GameObject fakeCircleObject;
@@ -34,20 +29,6 @@ public class GeometricFormsManager : MonoBehaviour {
     private float minX,maxX,minY,maxY;
     private float fminX, fmaxX, fminY, fmaxY;
     private Vector3 screenSize;
-=======
-	private Vector2 circlePosition;
-
-	[SerializeField]
-	private Renderer circleRenderer;
-
-	[SerializeField]
-	private ProgressBarManagement barManagement;
-
-	private float circleX, circleY, circleScale;
-
-	private float minX,maxX,minY,maxY;
-	private Vector3 screenSize;
->>>>>>> bdc512437efe42f5abd69a58977fc53a99c29836
 
 	
 	public void DestroyCircle(GameObject circle)
@@ -58,9 +39,9 @@ public class GeometricFormsManager : MonoBehaviour {
 		screenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,0.0f));
 
 	}
-<<<<<<< HEAD
 
-    public void FakeDestroyCircle(GameObject fakeCircle)
+
+    public void DestroyFakeCircle(GameObject fakeCircle)
     {
         Destroy(fakeCircle);
         barManagement.DecreaseBar(0.1f);
@@ -68,11 +49,7 @@ public class GeometricFormsManager : MonoBehaviour {
         screenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0.0f));
 
     }
-
-    public void SpawnCircle()
-=======
 	public void SpawnCircle()
->>>>>>> bdc512437efe42f5abd69a58977fc53a99c29836
 	{
 		print ("Tamanho da tela :(h: " + Screen.height +", w: "+ Screen.width+")");
 	
@@ -101,7 +78,7 @@ public class GeometricFormsManager : MonoBehaviour {
 		circleObject.transform.position = new Vector3(circlePosition.x,circlePosition.y,0);
 	}
 
-<<<<<<< HEAD
+
     public void SpawnFakeCircle()
     {
         print("Tamanho da tela :(h: " + Screen.height + ", w: " + Screen.width + ")");
@@ -130,11 +107,7 @@ public class GeometricFormsManager : MonoBehaviour {
 
         fakeCircleObject.transform.position = new Vector3(fakeCirclePosition.x, fakeCirclePosition.y, 0);
     }
-=======
 	
 
 
-
-
->>>>>>> bdc512437efe42f5abd69a58977fc53a99c29836
 }

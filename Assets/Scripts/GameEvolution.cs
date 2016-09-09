@@ -9,7 +9,7 @@ public class GameEvolution : MonoBehaviour {
 	void Awake () 
 	{
 		gameLevel = 1;
-		decreaseRate = 0.000001f;
+		decreaseRate = 0.0001f;
 	}
 
 	IEnumerator IncreaseLevel()
@@ -20,13 +20,13 @@ public class GameEvolution : MonoBehaviour {
 			gameLevel++;
 		}
 	}
-	public static IEnumerator SpeedUp()
+	public static void SpeedUp()
 	{
-		while(true)
-		{
-			decreaseRate += 0.0005f;
-			yield return new WaitForSeconds(5.0f/gameLevel);
-		}
+		//while(true)
+		//{
+		decreaseRate += 0.00001f;
+		//	yield return new WaitForSeconds(5.0f/gameLevel);
+		//}
 	}
 
 }

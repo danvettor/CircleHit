@@ -40,7 +40,7 @@ public class InputTreatment : MonoBehaviour {
             }
             else
             {
-                barManagement.DecreaseBar(0.05f);
+                barManagement.DecreaseBar(1.0f);
             }
         }
 

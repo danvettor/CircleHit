@@ -16,14 +16,15 @@ public class ProgressBarManagement : MonoBehaviour {
 	void Start () 
 	{
 		decreaseTimeDelay = 1.5f;
-		StartCoroutine(ConstantDecrementBar());
-		StartCoroutine(GameEvolution.SpeedUp());
+		//StartCoroutine(ConstantDecrementBar());
+		//StartCoroutine(GameEvolution.SpeedUp());
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-
+        ConstantDecrementBar();
+        GameEvolution.SpeedUp();
 		ChangeBarColor();
 		LoseGame();
 	}
@@ -47,14 +48,14 @@ public class ProgressBarManagement : MonoBehaviour {
 			bar.color = Color.red;
 
 	}
-	IEnumerator ConstantDecrementBar()
+	void ConstantDecrementBar()
 	{
-        yield return new WaitForSeconds(5.0f);
-		while(true)
-		{
-			bar.fillAmount -= GameEvolution.decreaseRate;
-			yield return new WaitForSeconds(decreaseTimeDelay);
-		}
+        //yield return new WaitForSeconds(5.0f);
+		//while(true)
+		//{
+		bar.fillAmount -= GameEvolution.decreaseRate;
+		//	//yield return new WaitForSeconds(0.5f);
+		//}
 	}
 	public void IncreaseBar(float value)
 	{

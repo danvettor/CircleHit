@@ -5,11 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField]
-    private Image bar;
-
-    float decreaseTimeDelay;
-
+    public Text text;
     private TimerManager timer;
 
     public int m_Score;
@@ -35,6 +31,7 @@ public class Score : MonoBehaviour
     void Update()
     {
         EndGame();
+        text.text = ""+m_Score;
     }
 
     void EndGame()

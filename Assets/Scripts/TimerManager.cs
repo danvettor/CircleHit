@@ -16,13 +16,13 @@ public class TimerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-        //	timerText.text = (int)minutes +":"+ (int)seconds;
-        timerText.text =((int)seconds).ToString();
+        timerText.text =(int)seconds+"";
         seconds -= Time.deltaTime;
+       //    Debug.Log(seconds);
 	}
     public void Penalty()
     {
-        seconds -= 10;
+        seconds -= 5;
 
     }
 

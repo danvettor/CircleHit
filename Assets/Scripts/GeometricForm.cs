@@ -6,10 +6,20 @@ using UnityEngine.UI;
 public class GeometricForm : MonoBehaviour
 {
 
-    public virtual void DestroyGeometric(GameObject geometric)
+    private GeometricSpawner spawner;
+    private Score score;
+
+    void Awake()
     {
-        Destroy(geometric);
-       
+        //trocar isso posteriormente
+        spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<GeometricSpawner>();
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
+    }
+    public void GeometricResponse()
+    {
+        spawner.SpawnGeometric();
+        score.ScoreCount(transform.tag);
+
     }
 
 }

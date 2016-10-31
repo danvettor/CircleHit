@@ -8,16 +8,16 @@ public class UITimeManager: MonoBehaviour {
 
  	void Awake ()
 	{
-		Invoke ("Write"+timeType+"Time",0.0f);
+		Invoke ("Write"+timeType+"Score",0.0f);
 	}
 	void WriteBestScore()
 	{
 		var bestScore = Data.LoadBestScore();
-        scoreText.text = "Best Score: " + bestScore;
+        scoreText.text = "" + bestScore;
 	}
-    void WriteScore()
+    void WriteCurrentScore()
     {
         var score = Data.LoadCurrentScore();
-        scoreText.text = "Your Score: " + score;
+        scoreText.text = "" + score;
     }
 }

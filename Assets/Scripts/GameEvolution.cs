@@ -3,14 +3,9 @@ using System.Collections;
 
 public class GameEvolution : MonoBehaviour {
 
-	public static int gameLevel;
-	public static float decreaseRate;
-
-	void Awake () 
-	{
-		gameLevel = 1;
-		decreaseRate = 0.0001f;
-	}
+	public int gameLevel;
+	public float decreaseRate;
+    
 
 	IEnumerator IncreaseLevel()
 	{

@@ -4,11 +4,6 @@ using System.Collections;
 public class GeometricSpawner : MonoBehaviour {
 
     [SerializeField]
-    private GameObject circleObject;
-    [SerializeField]
-    private GameObject fakeCircleObject;
-
-    [SerializeField]
     private GameObject circlePrefab;
     [SerializeField]
     private GameObject fakeCirclePrefab;
@@ -16,11 +11,7 @@ public class GeometricSpawner : MonoBehaviour {
     private Vector2 circlePosition;
     private Vector2 fakeCirclePosition;
 
-    [SerializeField]
-    private Renderer circleRenderer;
-    [SerializeField]
-    private Renderer fakeCircleRenderer;
-    
+    public Transform canvas;
 
     private float circleX, circleY, circleScale;
     private float fakeCircleX, fakeCircleY, fakeCircleScale;
@@ -32,19 +23,17 @@ public class GeometricSpawner : MonoBehaviour {
 
     public void SpawnGeometric()
     {
-        circleObject = (GameObject)Instantiate(circlePrefab, Vector3.zero, Quaternion.identity);
+        var circleObject = (GameObject)Instantiate(circlePrefab, Vector3.zero, Quaternion.identity);
 
-
+        circleObject.transform.SetParent(canvas);
         circleScale = Random.Range(0.2f, 1.0f);
         circleObject.transform.localScale = new Vector3(circleScale, circleScale, 1);
-        circleRenderer = circleObject.GetComponent<Renderer>();
-
-        print("Tamanho do sprite width: " + circleRenderer.bounds.extents.magnitude + "height" + circleRenderer.bounds.extents.x);
-
-        minX = -screenSize.x + circleRenderer.bounds.extents.x / 2;
-        maxX = screenSize.x - circleRenderer.bounds.extents.x / 2;
-        minY = -screenSize.y + circleRenderer.bounds.extents.x / 2;
-        maxY = screenSize.y - circleRenderer.bounds.extents.x / 2;
+    
+        var circleBounds = circleObject.GetComponent<RectTransform>().rect.width;
+        minX = -screenSize.x + circleBounds / 2;
+        maxX = screenSize.x - circleBounds / 2;
+        minY = -screenSize.y + circleBounds / 2;
+        maxY = screenSize.y - circleBounds / 2;
 
         circleX = Random.Range(minX, maxX);
         circleY = Random.Range(minY, maxY);
@@ -60,21 +49,20 @@ public class GeometricSpawner : MonoBehaviour {
 
     public void SpawnFakeCircle()
     {
-        print("Tamanho da tela :(h: " + Screen.height + ", w: " + Screen.width + ")");
+      
+        var fakeCircleObject = (GameObject)Instantiate(fakeCirclePrefab, Vector3.zero, Quaternion.identity);
 
-        fakeCircleObject = (GameObject)Instantiate(fakeCirclePrefab, Vector3.zero, Quaternion.identity);
-
+        fakeCircleObject.transform.SetParent(canvas);
 
         fakeCircleScale = Random.Range(0.3f, 2.0f);
         fakeCircleObject.transform.localScale = new Vector3(fakeCircleScale, fakeCircleScale, 1);
-        fakeCircleRenderer = fakeCircleObject.GetComponent<Renderer>();
+        var fakeCircleBounds = fakeCircleObject.GetComponent<RectTransform>().rect.width;
 
-        print("Tamanho do sprite width: " + fakeCircleRenderer.bounds.extents.magnitude + "height" + fakeCircleRenderer.bounds.extents.x);
-
-        fminX = -screenSize.x + fakeCircleRenderer.bounds.extents.x / 2;
-        fmaxX = screenSize.x - fakeCircleRenderer.bounds.extents.x / 2;
-        fminY = -screenSize.y + fakeCircleRenderer.bounds.extents.x / 2;
-        fmaxY = screenSize.y - fakeCircleRenderer.bounds.extents.x / 2;
+       
+        fminX = -screenSize.x + fakeCircleBounds / 2;
+        fmaxX = screenSize.x - fakeCircleBounds / 2;
+        fminY = -screenSize.y + fakeCircleBounds/2;
+        fmaxY = screenSize.y - fakeCircleBounds / 2;
 
         fakeCircleX = Random.Range(fminX, fmaxX);
         fakeCircleY = Random.Range(fminY, fmaxY);

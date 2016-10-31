@@ -3,25 +3,21 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class UITimeManager: MonoBehaviour {
-	public Text timeText;
+	public Text scoreText;
 	public string timeType;
-	private Vector2 
-		bestTime,
-		timeValue;
 
-	void Awake ()
+ 	void Awake ()
 	{
 		Invoke ("Write"+timeType+"Time",0.0f);
 	}
-	void WriteBestTime()
+	void WriteBestScore()
 	{
-		bestTime = DataManager.LoadBestTime();
-		timeText.text =(int) bestTime.x + ":" + (int)bestTime.y;
+		var bestScore = Data.LoadBestScore();
+        scoreText.text = "Best Score: " + bestScore;
 	}
-	void WriteCurrentTime()
-	{
-		timeValue = DataManager.LoadTime();
-		timeText.text = (int) timeValue.x + ":" + (int)timeValue.y; 
-	}
-
+    void WriteScore()
+    {
+        var score = Data.LoadCurrentScore();
+        scoreText.text = "Your Score: " + score;
+    }
 }

@@ -17,6 +17,7 @@ public class Circle : GeometricForm
         spawner.SpawnGeometric();
         score.ScoreCount(gameObject.tag);
     }
+
     
 }
 

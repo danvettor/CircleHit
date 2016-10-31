@@ -20,13 +20,5 @@ public class GameEvolution : MonoBehaviour {
 			gameLevel++;
 		}
 	}
-	public static void SpeedUp()
-	{
-		//while(true)
-		//{
-		decreaseRate += 0.00001f;
-		//	yield return new WaitForSeconds(5.0f/gameLevel);
-		//}
-	}
 
 }

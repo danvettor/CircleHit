@@ -18,6 +18,7 @@ public class Score : MonoBehaviour
     }
     public void ScoreCount(string type)
     {
+        print(type);
         if (type == "Circle")
         {
             m_Score++;

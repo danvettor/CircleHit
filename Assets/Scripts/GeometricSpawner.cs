@@ -5,22 +5,15 @@ using System;
 public class GeometricSpawner : MonoBehaviour {
 
     [SerializeField]
-    private GameObject circleObject;
+    private GeometricForm circle;
     [SerializeField]
-    private GameObject fakeCircleObject;
-
-    private Vector2 circlePosition;
-    private Vector2 fakeCirclePosition;
-    
-
-    private float circleX, circleY, circleScale;
-    private float fakeCircleX, fakeCircleY, fakeCircleScale;
+    private GeometricForm fakeCircle;
 
     public void SpawnGeometric()
-    {
-        SpawnCircle();
-        SpawnFakeCircle();
-    }
+    {   
+        fakeCircle.GeometricResponse();
+        circle.GeometricResponse();
+    }/*
     void SpawnCircle()
     {
         var circleScale = UnityEngine.Random.Range(0.05f, 0.4f);
@@ -38,9 +31,11 @@ public class GeometricSpawner : MonoBehaviour {
         print("posicao escolhida: " + circlePosition);
 
         circleObject.GetComponent<RectTransform>().position = circlePosition;
+        circleObject.GetComponent<Animator>().Play("ShowCircle");
 
 
     }
+
     void SpawnFakeCircle()
     {
         var circleScale = UnityEngine.Random.Range(0.05f, 0.4f);
@@ -60,8 +55,12 @@ public class GeometricSpawner : MonoBehaviour {
         print("posicao escolhida: " + circlePosition);
 
         fakeCircleObject.GetComponent<RectTransform>().position = circlePosition;
+        fakeCircleObject.GetComponent<Animator>().Play("ShowCircle");
+
 
 
     }
+    */
+
 
 }

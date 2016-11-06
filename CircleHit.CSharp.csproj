@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\GameEvolution.cs" />
     <Compile Include="Assets\Scripts\GeometricForm.cs" />
     <Compile Include="Assets\Scripts\GeometricSpawner.cs" />
+    <Compile Include="Assets\Scripts\RandomNumber.cs" />
     <Compile Include="Assets\Scripts\SceneChanger.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\TimerManager.cs" />

@@ -5,25 +5,23 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class TimerManager : MonoBehaviour {
-	public Text timerText;
-	public float seconds;
-	void Start () 
-	{
-		seconds = 60;
-
-	}
 	
-	// Update is called once per frame
+    public Image back;
+    
 	void Update () 
 	{
-        timerText.text =(int)seconds+"";
-        seconds -= Time.deltaTime;
-       //    Debug.Log(seconds);
+        back.fillAmount += Time.deltaTime/60;
 	}
-    public void Penalty()
+    public IEnumerator Penalty()
     {
-        seconds -= 5;
-
+        var clamp = Mathf.Clamp(1, 0, 0.1f);
+        Debug.Log(clamp);
+        var penalty = back.fillAmount + clamp;
+        for (int i = 0; i < 5; i++)
+        {
+            back.fillAmount = Mathf.Lerp(back.fillAmount,penalty,0.2f);
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 
 }

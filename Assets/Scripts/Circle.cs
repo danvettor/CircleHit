@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System;
 using Numeric;
 
-public class GeometricForm : MonoBehaviour
+public class Circle : MonoBehaviour
 {
 
     private GeometricSpawner spawner;
@@ -24,7 +24,7 @@ public class GeometricForm : MonoBehaviour
         anim = GetComponent<Animator>();
         
     }
-    public void GeometricResponse()
+    public void TouchResponse()
     {
         //   spawner.SpawnGeometric();
 

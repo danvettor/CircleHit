@@ -25,7 +25,7 @@ public class Score : MonoBehaviour
         }
         else if (type == "FakeCircle")
         {
-            timer.Penalty();
+            StartCoroutine(timer.Penalty());
         }
     }
     // Update is called once per frame
@@ -36,14 +36,13 @@ public class Score : MonoBehaviour
     }
 
     void EndGame()
-    {
+    {/*
         if (timer.seconds <= 0)
         {
             Data.SaveScore(m_Score);
             SceneManager.LoadScene("LoseScene");
-        }
+        }*/
     }
-    
 
 
 }

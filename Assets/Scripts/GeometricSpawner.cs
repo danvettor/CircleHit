@@ -18,7 +18,6 @@ public class GeometricSpawner : MonoBehaviour {
 		circle.TouchResponse();
 	}
 
-
     public void SpawnGeometric()
     {   
         fakeCircle.TouchResponse();

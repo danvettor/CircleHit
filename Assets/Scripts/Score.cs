@@ -18,7 +18,6 @@ public class Score : MonoBehaviour
     }
     public void ScoreCount(string type)
     {
-        print(type);
         if (type == "Circle")
         {
 			score++;
@@ -37,17 +36,12 @@ public class Score : MonoBehaviour
 
     void EndGame()
     {
-<<<<<<< HEAD
-        if (timer.back.fillAmount >= 1)
-        {
-			Data.SaveScore(score);
-=======
+
         if (timer.back.fillAmount >=1)
         {
-            Data.SaveScore(m_Score);
-           
->>>>>>> 40452a15fde5564fbee01cf2babba1d60d16e50a
+            Data.SaveScore(score);  
             SceneManager.LoadScene("LoseScene");
+			AdsManager.ShowAdvertisement();
         }
     }
 

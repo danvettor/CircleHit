@@ -15,7 +15,6 @@ public class TimerManager : MonoBehaviour {
     public IEnumerator Penalty()
     {
         var clamp = Mathf.Clamp(1, 0, 0.1f);
-        Debug.Log(clamp);
         var penalty = back.fillAmount + clamp;
         for (int i = 0; i < 5; i++)
         {

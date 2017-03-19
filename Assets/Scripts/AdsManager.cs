@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
+
 public class AdsManager : MonoBehaviour {
 
     string gameID;
     public bool testEnabled;
-
-
     void Start()
     {
+
 #if UNITY_IOS
         gameID = "1248266";
 #elif UNITY_ANDROID
@@ -17,20 +17,17 @@ public class AdsManager : MonoBehaviour {
 #else
         gameID = "1248057";
 #endif
-        
-        ShowAdvertisement();
+
+		DontDestroyOnLoad(transform.gameObject);
+		Advertisement.Initialize(gameID, testEnabled);
 	}
 
-    private void ShowAdvertisement()
+	public static void ShowAdvertisement()
     {
-        Debug.Log("Entrei nessa bosta");
-        /*
         if (Advertisement.IsReady())
         {
             Advertisement.Show();
 
-        }*/
-        Advertisement.Show();
-
+        }
     }
 }

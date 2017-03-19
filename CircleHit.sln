@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
 Project("{5487DEA3-F83E-747D-979E-09B2F01C1162}") = "CircleHit", "Assembly-CSharp.csproj", "{B41541FA-FBA2-B453-DF89-F34852B65800}"
+=======
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircleHit", "CircleHit.csproj", "{3AC6D964-6327-3F3B-95EF-59B0989F4791}"
+>>>>>>> 40452a15fde5564fbee01cf2babba1d60d16e50a
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +16,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< HEAD
 		{B41541FA-FBA2-B453-DF89-F34852B65800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B41541FA-FBA2-B453-DF89-F34852B65800}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B41541FA-FBA2-B453-DF89-F34852B65800}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B41541FA-FBA2-B453-DF89-F34852B65800}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{3AC6D964-6327-3F3B-95EF-59B0989F4791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC6D964-6327-3F3B-95EF-59B0989F4791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AC6D964-6327-3F3B-95EF-59B0989F4791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AC6D964-6327-3F3B-95EF-59B0989F4791}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 40452a15fde5564fbee01cf2babba1d60d16e50a
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

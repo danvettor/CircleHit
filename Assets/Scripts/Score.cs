@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Advertisements;
 public class Score : MonoBehaviour
 {
     public Text text;
@@ -37,9 +37,16 @@ public class Score : MonoBehaviour
 
     void EndGame()
     {
+<<<<<<< HEAD
         if (timer.back.fillAmount >= 1)
         {
 			Data.SaveScore(score);
+=======
+        if (timer.back.fillAmount >=1)
+        {
+            Data.SaveScore(m_Score);
+           
+>>>>>>> 40452a15fde5564fbee01cf2babba1d60d16e50a
             SceneManager.LoadScene("LoseScene");
         }
     }

@@ -19,7 +19,7 @@ public class TimerManager : MonoBehaviour {
         var penalty = back.fillAmount + clamp;
         for (int i = 0; i < 5; i++)
         {
-            back.fillAmount = Mathf.Lerp(back.fillAmount,penalty,0.2f);
+            back.fillAmount = Mathf.Lerp(back.fillAmount,penalty,0.05f);
             yield return new WaitForSeconds(0.05f);
         }
     }

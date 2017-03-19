@@ -3,11 +3,21 @@ using System.Collections;
 using System;
 
 public class GeometricSpawner : MonoBehaviour {
+	private Circle fakeCircle; 
+	private Circle circle;
 
-    [SerializeField]
-    private Circle circle;
-    [SerializeField]
-    private Circle fakeCircle;
+
+	void Awake()
+	{
+		fakeCircle = transform.FindChild("FakeCircle").GetComponent<Circle>();
+		circle = transform.FindChild("Circle").GetComponent<Circle>();
+	}
+	void Start()
+	{
+		fakeCircle.TouchResponse();
+		circle.TouchResponse();
+	}
+
 
     public void SpawnGeometric()
     {   

@@ -8,12 +8,12 @@ public class Score : MonoBehaviour
     public Text text;
     private TimerManager timer;
 
-    public int m_Score;
+    public int score;
 
     // Use this for initialization
     void Start()
     {
-        m_Score = 0;
+		score = 0;
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<TimerManager>();
     }
     public void ScoreCount(string type)
@@ -21,7 +21,7 @@ public class Score : MonoBehaviour
         print(type);
         if (type == "Circle")
         {
-            m_Score++;
+			score++;
         }
         else if (type == "FakeCircle")
         {
@@ -32,16 +32,16 @@ public class Score : MonoBehaviour
     void Update()
     {
         EndGame();
-        text.text = ""+m_Score;
+		text.text = ""+ score;
     }
 
     void EndGame()
-    {/*
-        if (timer.seconds <= 0)
+    {
+        if (timer.back.fillAmount >= 1)
         {
-            Data.SaveScore(m_Score);
+			Data.SaveScore(score);
             SceneManager.LoadScene("LoseScene");
-        }*/
+        }
     }
 
 

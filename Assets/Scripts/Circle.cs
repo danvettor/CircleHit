@@ -1,70 +1,92 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 using UnityEngine.UI;
 using System;
 using Numeric;
 
 public class Circle : MonoBehaviour
 {
-
     private GeometricSpawner spawner;
     private Score score;
     private RectTransform rect;
     private Animator anim;
+	private List<CircleType> typeList;
+	private CircleType circleType;
 
     private IEnumerator coroutineInstance;
 
     void Awake()
     {
         //trocar isso posteriormente
-
+		
+		typeList = new List<CircleType>{CircleType.Blue, CircleType.Red};
+	
         spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<GeometricSpawner>();
         score = GameObject.FindGameObjectWithTag("Score").GetComponent<Score>();
-        rect = GetComponent<RectTransform>();
-        anim = GetComponent<Animator>();
-        
+       
     }
+	void Start()
+	{
+		//FAZER A ANIMAÇAO DE SHOW TOCAR AQUI
+		var index = UnityEngine.Random.Range(0,typeList.Count);
+		circleType = typeList[index];
+		if(circleType == CircleType.Blue)
+		{
+			GetComponent<Image>().color = CircleColor.Blue;
+			spawner.numBlueCircles++;
+		}
+		else
+		{
+			GetComponent<Image>().color = CircleColor.Red;
+			spawner.numRedCircles++;
+		}
+	}
     public void TouchResponse()
     {
-        //   spawner.SpawnGeometric();
-
-        if (!(coroutineInstance == null))
-        {
-            StopCoroutine(coroutineInstance);
-        }
-        Respawn();
-
-    }
-    public void Respawn()
-    {
-
-        var circleBounds = rect.rect.width;
-
-        var minX = 0;
-        var maxX = Screen.width;
-        var minY = minX;
-        var maxY = Screen.height;
-
-        var circlePosition = new Vector3(RandomNumber.Between(minX, maxX), UnityEngine.Random.Range(minY, maxY), 0.0f);
-        
-        print("posicao escolhida: " + circlePosition);
-        coroutineInstance = ShowCircle();
-        StartCoroutine(coroutineInstance);
-        
-        rect.position = circlePosition;
-    }
-    IEnumerator ShowCircle()
-    {
-        var circleScale = UnityEngine.Random.Range(0.05f, 0.4f);
-        var newScale = new Vector3(circleScale, circleScale, 1);
-        transform.localScale = Vector3.zero;
-
-        while (true)
-        {
-            transform.localScale = Vector3.Lerp(transform.localScale, newScale,0.05f);
-            yield return new WaitForSeconds(0.005f);
-        }
-    }
+		//FAZER A ANIMAÇÃO DE HIDE/DESTROY DO CIRCULO TOCAR AQUI
+		if (circleType == CircleType.Blue)
+		{
+			spawner.numBlueCircles--;
+			score.WinScore();
+		}
+		else
+		{
+			spawner.numRedCircles--;
+			score.LoseScore();
+		}
+	}
+ 
 
 }
+public enum CircleType 
+{	
+	Blue,
+	Red
+}
+
+public class CircleColor
+{
+	public static Color Red 
+	{
+		get
+		{
+			return new Color(0.643137255f, 0.06666666666f, 0.06666666666f);
+		}
+		private set{}
+	}
+
+	public static Color Blue 
+	{
+		get
+		{
+			return new Color(0.06666666666f, 0.06666666666f, 0.643137255f);
+		}
+		private set{}
+	}
+
+
+}
+
 

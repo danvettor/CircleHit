@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
     public Text text;
     private TimerManager timer;
 
-    public int score;
+    private int score;
 
     // Use this for initialization
     void Start()
@@ -16,17 +16,17 @@ public class Score : MonoBehaviour
 		score = 0;
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<TimerManager>();
     }
-    public void ScoreCount(string type)
-    {
-        if (type == "Circle")
-        {
-			score++;
-        }
-        else if (type == "FakeCircle")
-        {
-            StartCoroutine(timer.Penalty());
-        }
-    }
+    
+
+	public void WinScore()
+	{
+		score++;
+	}
+
+	public void LoseScore()
+	{
+		StartCoroutine(timer.Penalty());
+	}
     // Update is called once per frame
     void Update()
     {
